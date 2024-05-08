@@ -1,0 +1,20 @@
+{
+  "name": "gerenciador-de-eventos-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "tsx ./src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "tsx": "^4.9.3",
+    "typescript": "^5.4.5"
+  }
+}
