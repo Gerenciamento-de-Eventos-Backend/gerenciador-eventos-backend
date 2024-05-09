@@ -23,3 +23,12 @@ model User {
 
   @@map("user")
 }
+
+model productions {
+  id        Int     @id @default(autoincrement())
+  name      String
+  category  Category[] @relation(references: [id])
+  local     Json
+  date      DateTime   @default(now())
+  tickets   Int
+}
