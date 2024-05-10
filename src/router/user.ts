@@ -1,7 +1,18 @@
 import express from 'express';
+import { userController } from "../controllers/userController"
 
-const router = express();
+export const router = express();
 
-router.post('/user')
+const user = new userController();
 
-export default router
+router
+    .route("/users/:id")
+    .get(user.getOne)
+    .patch(user.update);
+router
+    .route("/users")
+    .post(user.create)
+    .get(user.getAll);
+
+
+export default router;
