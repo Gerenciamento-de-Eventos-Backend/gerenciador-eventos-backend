@@ -38,6 +38,10 @@ export class userController {
         try{
             const { id } = req.params;
             const response = await userService.searchById(Number(id));
+
+            if(!response) {
+                return res.status(404).json({message: "Usuário não encontrado!"})
+            }
             return res.status(200).json(response);
         } catch(error) {
             return res.status(500).json({message: "Erro ao econtrar o usuário"})

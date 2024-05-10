@@ -5,7 +5,9 @@ export const router = express();
 
 const user = new userController();
 
-router.get("/users/:id", user.getOne);
+router
+    .route("/users/:id")
+    .get(user.getOne);
 router
     .route("/users")
     .post(user.create)
