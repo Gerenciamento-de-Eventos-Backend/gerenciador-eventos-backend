@@ -8,7 +8,6 @@ export class userController {
         const { name, cpf, phone, email, password } = req.body;
     
         try {
-            console.log('entrou')
             await prisma.user.create ({
                 data: {
                     name,
@@ -21,9 +20,16 @@ export class userController {
 
             return res.status(201).json({message: "Usuário criado!"})
 
-        } catch (err) {
-            //console.log('entrou');
+        } catch (error) {
             return res.status(500).json({message: "Error ao criar usuário!"})
+        }
+    }
+    async getAll(req: Request, res: Response) {
+        try {
+            const response = await prisma.user.findMany();
+            res.status(200).send(response);
+        } catch (error) {
+            return res.status(500).json({message: "Erro ao listar todos os usuários"})
         }
     }
 }
