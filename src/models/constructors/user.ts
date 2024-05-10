@@ -1,5 +1,6 @@
 import userService from "../../services/database/user";
 
+//posteriormente alterar o conteúdo do user
 export class User {
     name: string;
     cpf: string;
@@ -22,7 +23,7 @@ export class User {
     }) {
         this.name = name;
         this.cpf = cpf;
-        this.phone = cpf;
+        this.phone = phone;
         this.email = email;
         this.password = password;
     }
