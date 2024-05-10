@@ -10,11 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.13.0",
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "prisma": "^5.13.0",
     "tsc": "^2.0.4",
     "tsx": "^4.9.3",
     "typescript": "^5.4.5"
