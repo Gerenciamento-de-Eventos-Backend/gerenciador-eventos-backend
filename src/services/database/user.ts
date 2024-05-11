@@ -50,6 +50,18 @@ class userService {
             console.log("error", error);
         }
     }
+    async delete(id: number) {
+        try {
+            const deleteUser = await prisma.user.delete({
+                where: {
+                    id,
+                }
+            })
+            return deleteUser
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
 }
 
 export default new userService();

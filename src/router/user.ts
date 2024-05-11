@@ -8,7 +8,8 @@ const user = new userController();
 router
     .route("/users/:id")
     .get(user.getOne)
-    .patch(user.update);
+    .patch(user.update)
+    .delete(user.delete);
 router
     .route("/users")
     .post(user.create)
