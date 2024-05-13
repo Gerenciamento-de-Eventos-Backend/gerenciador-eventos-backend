@@ -20,6 +20,7 @@ model User {
   phone     String
   email     String  @unique
   password  String
+  Tickets   Tickets[]
 
   @@map("user")
 }
@@ -30,4 +31,13 @@ model productions {
   local     Json
   date      DateTime   @default(now())
   tickets   Int
+}
+
+model Tickets {
+  id        String @id @default(cuid())
+
+  user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+
+  @@map("tickets")
 }
