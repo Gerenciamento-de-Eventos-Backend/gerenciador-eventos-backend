@@ -50,6 +50,6 @@ class productionService {
     }
 }
 
-}
+
 
 export default new productionService();

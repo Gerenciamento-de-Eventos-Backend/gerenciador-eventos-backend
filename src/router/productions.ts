@@ -12,5 +12,7 @@ router
     
 router.get("/production/:id", production.getOne);
 
+router.post("/production/:id", production.update);
+
 
 export default router;
