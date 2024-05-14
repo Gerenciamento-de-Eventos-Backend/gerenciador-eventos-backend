@@ -1,7 +1,16 @@
 import express from 'express';
+import { productionsController } from "../controllers/productionsController"
 
-const router = express();
+export const router = express();
 
-router.post('/productions')
+const production = new productionsController();
 
-export default router
+router
+    .route("/production")
+    .post(production.create)
+    .get(production.getAll)
+    
+router.get("/production/:id", production.getOne);
+
+
+export default router;
