@@ -27,7 +27,7 @@ model User {
 model productions {
   id        Int     @id @default(autoincrement())
   name      String
-  local     Json
+  local     String
   date      DateTime   @default(now())
   tickets   Int
 }
