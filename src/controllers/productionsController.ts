@@ -41,4 +41,20 @@ export class productionsController {
             return res.status(500).json({message: "Erro ao encontrar evento"});
         }
     }
+
+    async update(req: Request, res: Response) {
+        try{
+            const { id } = req.params;
+            const updateData = req.body;
+
+            await productionService.searchById(Number(id));
+
+            const response = await productionService.update(Number(id), updateData);
+
+            return res.status(200).json(response);
+        } catch (error) {
+            return res.status(500).json({message: "Erro ao encontrar o evento"});
+        }
+    }
+}
 }
