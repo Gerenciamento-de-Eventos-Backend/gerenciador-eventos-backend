@@ -34,6 +34,22 @@ class productionService {
         }
     }
 
+    async update(id: number, data: Partial<production>) {
+        try {
+            const response = await prisma.production.update({
+                where: {
+                    id,
+                }, 
+                data,
+
+            })
+            return response;
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
 }
+
+
 
 export default new productionService();
