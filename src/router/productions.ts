@@ -11,8 +11,8 @@ router
     .get(production.getAll)
     
 router.get("/production/:id", production.getOne);
-
 router.post("/production/:id", production.update);
+router.delete("/production/:id", production.delete);
 
 
 export default router;

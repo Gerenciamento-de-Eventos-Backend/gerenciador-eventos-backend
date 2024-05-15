@@ -34,6 +34,21 @@ class productionService {
         }
     }
 
+    async delete(id: number) {
+        try {
+            
+            const response = await prisma.production.delete({
+                where: {
+                  id,
+                },
+              })
+
+            return response
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
+
     async update(id: number, data: Partial<production>) {
         try {
             const response = await prisma.production.update({

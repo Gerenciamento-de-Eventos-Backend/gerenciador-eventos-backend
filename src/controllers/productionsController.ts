@@ -41,7 +41,7 @@ export class productionsController {
             return res.status(500).json({message: "Erro ao encontrar evento"});
         }
     }
-
+   
     async update(req: Request, res: Response) {
         try{
             const { id } = req.params;
@@ -56,4 +56,19 @@ export class productionsController {
             return res.status(500).json({message: "Erro ao encontrar o evento"});
         }
     }
+
+    async delete(req: Request, res: Response) {
+        try{
+            const { id } = req.params;
+            const response = await productionService.delete(Number(id));
+
+            if(!response) {
+                return res.status(404).json({message: "Evento não encontrado!"})
+            }
+            return res.status(200).json({message: "O evento foi deletado."});
+        } catch(error) {
+            return res.status(500).json({message: "Erro ao deletarevento"});
+        }
+    }
+
 }
