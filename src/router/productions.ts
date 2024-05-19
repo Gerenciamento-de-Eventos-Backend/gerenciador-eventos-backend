@@ -1,18 +1,19 @@
 import express from 'express';
 import { productionsController } from "../controllers/productionsController"
+import {validateProductionCreate} from '../middlewares/validate'
 
-export const router = express();
+export const productionRouter = express();
 
 const production = new productionsController();
 
-router
+productionRouter
     .route("/production")
-    .post(production.create)
+    .post(validateProductionCreate, production.create)
     .get(production.getAll)
     
-router.get("/production/:id", production.getOne);
-router.post("/production/:id", production.update);
-router.delete("/production/:id", production.delete);
+productionRouter.get("/production/:id", production.getOne);
+productionRouter.post("/production/:id", production.update);
+productionRouter.delete("/production/:id", production.delete);
 
 
-export default router;
+export default productionRouter;
