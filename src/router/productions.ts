@@ -2,18 +2,18 @@ import express from 'express';
 import { productionsController } from "../controllers/productionsController"
 import {validateProductionCreate} from '../middlewares/validate'
 
-export const productionRouter = express();
+export const productionsRouter = express();
 
 const production = new productionsController();
 
-productionRouter
+productionsRouter
     .route("/production")
     .post(validateProductionCreate, production.create)
     .get(production.getAll)
     
-productionRouter.get("/production/:id", production.getOne);
-productionRouter.post("/production/:id", production.update);
-productionRouter.delete("/production/:id", production.delete);
+productionsRouter.get("/production/:id", production.getOne);
+productionsRouter.post("/production/:id", production.update);
+productionsRouter.delete("/production/:id", production.delete);
 
 
-export default productionRouter;
+export default productionsRouter;
