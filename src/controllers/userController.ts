@@ -59,4 +59,17 @@ export class userController {
             return res.status(500).json({message: "Erro ao econtrar o usuário"});
         }
     }
+
+    async delete(req: Request, res: Response) {
+        try {
+            const { id } = req.params;
+
+            //await userService.searchById(Number(id));
+
+            const response = await userService.delete(Number(id));
+            return res.status(200).json(response);
+        } catch (error) {
+            return res.status(500).json({message: "Erro ao deletar usuário"});
+        }
+    }
 }

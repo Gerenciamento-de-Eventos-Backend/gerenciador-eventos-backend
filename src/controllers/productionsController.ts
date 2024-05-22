@@ -21,7 +21,7 @@ export class productionsController {
 
     async getAll(req: Request, res: Response) {
         try {
-            const response = await prisma.production.findMany();
+            const response = await prisma.productions.findMany();
             res.status(200).send(response);
         } catch (error) {
             return res.status(500).json({message: "Erro ao listar todos os eventos"})
