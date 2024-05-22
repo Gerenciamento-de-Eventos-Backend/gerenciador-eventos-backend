@@ -1,10 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 import { production } from "../../models/constructors/productions"
+import { ProductionSchema, ProductionInfer } from "../../models/constructors/schemas/ProductionSchema"
+
 
 const prisma = new PrismaClient();
 
 class productionService {
     async create(production: production) {
+
+
         try {
             const response = await prisma.production.create({
                 data: {

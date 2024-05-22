@@ -67,7 +67,7 @@ export class productionsController {
             }
             return res.status(200).json({message: "O evento foi deletado."});
         } catch(error) {
-            return res.status(500).json({message: "Erro ao deletarevento"});
+            return res.status(500).json({message: "Erro ao deletar evento"});
         }
     }
 
