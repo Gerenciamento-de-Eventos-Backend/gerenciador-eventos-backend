@@ -1,7 +1,7 @@
 import express from "express";
 import { router } from "./router/user";
 
-import { productionRouter } from "./router/productions";
+import { productionsRouter } from "./router/productions";
 
 
 export const app = express();
@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(router);
 
-app.use(productionRouter)
+app.use(productionsRouter);
 
 
 app.listen(port, () =>
